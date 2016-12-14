@@ -1,5 +1,7 @@
 # mysql_analyse_general_log.pl
 
+[![Build Status](https://travis-ci.org/linkbynet/mysql_analyse_general_log.svg?branch=master)](https://travis-ci.org/linkbynet/mysql_analyse_general_log)
+
 `mysql_analyse_general_log.pl` allow to parse MySQL general log file (all queries) and identify all requests per transaction.
 
 To use it you need to activate the general.log of MySQL. Activation of MySQL general.log can impact MySQL performance and will be disk intensive (write all requests including SELECTs) and will consume disk space.
