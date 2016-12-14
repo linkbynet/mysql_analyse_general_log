@@ -1,0 +1,11 @@
+stages:
+  - unit_test
+
+test_debian_latest:
+  stage: unit_test
+  image: debian:latest
+  script:
+    - apt-get update
+    - apt-get install -y  libdatetime-locale-perl
+    # run all tests
+    - unit-test/test1.sh
