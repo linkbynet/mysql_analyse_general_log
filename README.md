@@ -45,7 +45,12 @@ THREAD_DMP : 161205 12:00:11 : Query :  SELECT `fake`.* FROM `fake` WHERE (produ
 
 If some transactions are started, have locked lines/tables/keys, and are long to commit or rollback, theses requests cannot be seen in full processlist nor engine innodb status.
 
+This is often seen in application logs, when a transaction has wait too much time for objects locked by another transaction :
+```
+General error: 1205 Lock wait timeout exceeded; try restarting transaction
+```
 By analysing the general log you can group all requests by transaction, and :
+
 - get a dump of all non commited transactions at a specific time,
 ```
 cat general.log | mysql_analyse_general_log --end='140909 10:05:50'
